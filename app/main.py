@@ -1,3 +1,8 @@
+import os
+_k = os.environ.get("GEMINI_API_KEY")
+print("GEMINI_API_KEY set:", _k is not None, "| length:", len(_k) if _k else 0, flush=True)
+print("env names containing KEY/GEMINI:", [n for n in os.environ if "GEMINI" in n.upper() or "KEY" in n.upper()], flush=True)
+
 """The FastAPI app: wires the RAG pipeline to HTTP.
 
 POST /api/chat   {question}  ->  {answer, found, sources[]}     (public, CORS + rate limited)
