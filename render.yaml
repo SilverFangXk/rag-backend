@@ -1,0 +1,20 @@
+# Render Blueprint: Dashboard -> New -> Blueprint -> pick this repo.
+# (Not used by Vercel, which ignores this file.)
+services:
+  - type: web
+    name: portfolio-rag            # becomes https://portfolio-rag.onrender.com (change it if the name is taken)
+    runtime: python
+    plan: free                     # IMPORTANT: if omitted, Render creates a paid "starter" service
+    region: frankfurt              # closest Render region to Morocco
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.11"
+      - key: ANTHROPIC_API_KEY     # secrets: Render asks you for the value, they never live in git
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS       # e.g. https://yourname.vercel.app
+        sync: false

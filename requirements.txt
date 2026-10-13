@@ -1,0 +1,7 @@
+# Runtime dependencies (what gets deployed). Note: no Firestore / Google Cloud here.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+pydantic>=2.7,<3
+pydantic-settings>=2.3,<3
+google-genai>=1.0,<2
+anthropic>=0.40,<1

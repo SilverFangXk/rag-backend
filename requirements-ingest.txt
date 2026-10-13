@@ -1,0 +1,3 @@
+# Only needed on YOUR laptop, to read Firestore when building the index.
+-r requirements.txt
+google-cloud-firestore>=2.19,<3
